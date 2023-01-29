@@ -7,7 +7,7 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="description"
         content="A clean, beautiful and responsive portfolio template for Developers! using only Html, CSS, and JavaScript">
-    <title>Controlo</title>
+    <title>Playlist</title>
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/home.css" rel="stylesheet" />
@@ -42,70 +42,66 @@
         <div class="container">
             <div class="row">
                 <div class="title">
-                    <h1>Controlo</h1>
+                    <h1>Playlist</h1>
                 </div>
                 <div class="img">
-                    <img src="img/portfolio/web/controlo.png" alt='me' />
+                    <img src="img/portfolio/shell/playlist.png" alt='me' />
                 </div>
                 <div class="text">
                     <h6>A Propos du projet:</h6>
-                    <p>L'application que nous développons est une application web. Celle-ci permet gérer le placement
-                        des étudiants lors des contrôles à travers la création de plans de placement et de feuilles
-                        d’émargements, elle a un but professionnel puisqu'elle s'adresse à l'administration du
-                        département informatique de l'IUT de Bayonne et du Pays Basque.</p><br>
-                    <h6>Pitch de la fonctionnalité retenue:</h6>
-                    <p>La fonctionnalité que nous avons retenue pour notre application est le placement automatique des
-                        étudiants.
-                        Celui-ci se base sur des plans de salles qui seront fournis en CSV où on va venir appliquer de
-                        nombreuses contraintes qui définiront le placement :<br>
-                    <ul>
-                        <li>
-                            Le nombre de places séparant les étudiants.
-                        </li>
-
-                        <li>
-                            Le nombre de rangés séparant les étudiants (rare en salle, mais très fréquent en amphi).
-                        </li>
-                        <li>
-                            Les étudiants tier-temps qui doivent être dans des salles spécifiques avec des places
-                            précise selon l’utilisation d’un ordinateur ou non.
-                        </li>
-                        <li>
-                            Le nombre d’étudiants à placer, l’application vérifiera à partir des plans de placements
-                            déjà établis les salles qui sont disponibles pour effectuer le placement.
-                        </li>
-                        <li>
-                            Si le nombre d’étudiants est trop grand par rapport aux salles disponibles, l’application
-                            enverra une notification à l'utilisateur en l’invitant à ajouter de nouvelles salles.
-                        </li>
-                    </ul>
-                    </p><br>
+                    <p>C'est une application web communicante, en l'occurrence un mini site web dynamique
+                        en PHP / HTML / CSS, de 2 ou 3 pages, affichant la playlist d'un utilisateur sélectionné dans
+                        une liste déroulante, playlist stockée dans une base de données) dans un environnement réseau,
+                        que l’on doit simuler dans un environnement Marionnet.</p><br>
+                    <h6>Infrastructure:</h6>
                     <p>
-                        On aura aussi des algorithmes différents afin de placer les étudiants :
                     <ul>
                         <li>
-                            Un placement selon les groupes : TP ou TD ou indifférent.
+                            Une machine DHCP pour configurer les machines présentes dans l’infrastructure.
                         </li>
                         <li>
-                            Un placement par ordre alphabétique ascendant, descendant ou aléatoire.
+                            Une machine hébergeant le code source de notre application.
+                        </li>
+                        <li>
+                            Une machine hébergeant la base de données.
+                        </li>
+                        <li>
+                            Trois machines clientes afin d’accéder au sous-réseau.
+                        </li>
+                        <li>
+                            Des commutateurs.
+                        </li>
+                        <li>
+                            Des routeurs.
+                        </li>
+                        <li>
+                            Un gateway.
+                        </li>
+                        <li>
+                            Une machine qui sert de pare-feu.
+                        </li>
+                        <li>
+                            Une machine avec la backup.
                         </li>
                     </ul>
                     </p><br>
+                    <p>Nous aurons donc au total, 8 machines. On utilisera MySQL comme système de gestion de base de
+                        données avec SQL comme langage. Pour lancer les serveurs et permettre l'exécution du php, on
+                        utilisera Apache Server. On utilisera le DHCP pour configurer les machines.</p><br>
                     <h6>Compétences visées</h6>
-                    <p>Maîtriser les concepts de l'algorithmique et de la programmation</p>
+                    <p>Maîtriser les concepts de réseaux, de l'adressage et du configuration des services déployés</p>
                     <div class="skills">
                         <h6>Langages utilisés:</h6>
                         <div class="skills-list">
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-check-square"></i></span>JavaScript</li>
+                                <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Shell</li>
+                                <li><span class="fa-li"><i class="fas fa-check-square"></i></span>SQL</li>
                                 <li><span class="fa-li"><i class="fas fa-check-square"></i></span>PHP</li>
-                                <li><span class="fa-li"><i class="fas fa-check-square"></i></span>CSS</li>
                             </ul>
                         </div>
                         <div class="social">
                             Code source:
-                            <a target="_blank" href="S3.01A-Developpement-d-application-et-Gestion-de-projet.zip"><i
-                                    class="fa fa-download"></i></a>
+                            <a target="_blank" href="playlist.zip"><i class="fa fa-download"></i></a>
                         </div>
                     </div>
                 </div>
@@ -122,126 +118,142 @@
                 <div class="filter-btn">
                     <ul id="filterBtn">
                         <li class="active" data-target="all">Tout</li>
-                        <li data-target="web">Images</li>
-                        <li data-target="ui">Video</li>
-                        <li data-target="soutenance">Soutenance</li>
+                        <li data-target="adressage">Plans d'adressage</li>
+                        <li data-target="Routage">Routage</li>
+                        <li data-target="DHCP">Accès DHCP</li>
+                        <li data-target="web">Accès serveur web</li>
+                        <li data-target="mysql">MYSQL</li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="gallery">
+                    <div class="item" data-id="adressage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/1.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Plan d'adressage</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item" data-id="Routage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/2.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Client1</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" data-id="Routage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/3.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Client2</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" data-id="Routage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/4.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Serveur Web</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" data-id="Routage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/5.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Serveur BD</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" data-id="Routage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/6.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Routeur 1</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" data-id="Routage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/7.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Routeur 2</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" data-id="Routage">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/8.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Serveur DHCP</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item" data-id="DHCP">
+                        <div class="inner">
+                            <img src="./img/portfolio/shell/9.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Accès DHCP</h4>
+                            </div>
+                        </div>
+                    </div>
                     <div class="item" data-id="web">
                         <div class="inner">
-                            <img src="./img/portfolio/controlo/1.png" alt="portfolio" />
+                            <img src="./img/portfolio/shell/10.png" alt="portfolio" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Controlo</h4>
+                                <h4>Acceuil</h4>
                             </div>
                         </div>
                     </div>
                     <div class="item" data-id="web">
                         <div class="inner">
-                            <img src="./img/portfolio/controlo/2.png" alt="portfolio" />
+                            <img src="./img/portfolio/shell/11.png" alt="portfolio" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Manuel d'utilisation</h4>
+                                <h4>Utilisateur</h4>
                             </div>
                         </div>
                     </div>
                     <div class="item" data-id="web">
                         <div class="inner">
-                            <img src="./img/portfolio/controlo/3.png" alt="portfolio" />
+                            <img src="./img/portfolio/shell/12.png" alt="portfolio" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Accueil</h4>
+                                <h4>Liste des musiques</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="item" data-id="web">
+                    <div class="item" data-id="mysql">
                         <div class="inner">
-                            <img src="./img/portfolio/controlo/4.png" alt="portfolio" />
+                            <img src="./img/portfolio/shell/13.png" alt="portfolio" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Liste des contrôles</h4>
+                                <h4>Ouvrir MYSQL</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="item" data-id="web">
+                    <div class="item" data-id="mysql">
                         <div class="inner">
-                            <img src="./img/portfolio/controlo/8.png" alt="portfolio" />
+                            <img src="./img/portfolio/shell/14.png" alt="portfolio" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Générer plan de placement</h4>
+                                <h4>Table projet</h4>
                             </div>
                         </div>
-                    </div>
-                    <div class="item" data-id="web">
-                        <div class="inner">
-                            <img src="./img/portfolio/controlo/9.png" alt="portfolio" />
-                            <div class="overlay">
-                                <span class="fa fa-plus"></span>
-                                <h4>Résultat</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" data-id="web">
-                        <div class="inner">
-                            <img src="./img/portfolio/controlo/5.png" alt="portfolio" />
-                            <div class="overlay">
-                                <span class="fa fa-plus"></span>
-                                <h4>Liste des étudiants</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" data-id="web">
-                        <div class="inner">
-                            <img src="./img/portfolio/controlo/6.png" alt="portfolio" />
-                            <div class="overlay">
-                                <span class="fa fa-plus"></span>
-                                <h4>Liste des salles</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" data-id="web">
-                        <div class="inner">
-                            <img src="./img/portfolio/controlo/7.png" alt="portfolio" />
-                            <div class="overlay">
-                                <span class="fa fa-plus"></span>
-                                <h4>Apercu d'une salle</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" data-id="soutenance">
-                        <div class=" inner">
-                            <img src="./img/portfolio/controlo/10.JPG" alt="portfolio" />
-                            <div class="overlay">
-                                <span class="fa fa-plus"></span>
-                                <h4>Soutenance</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" data-id="soutenance">
-                        <div class="inner">
-                            <img src="./img/portfolio/controlo/11.jpg" alt="portfolio" />
-                            <div class="overlay">
-                                <span class="fa fa-plus"></span>
-                                <h4>Soutenance</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" data-id="soutenance">
-                        <div class="inner">
-                            <img src="./img/portfolio/controlo/12.jpg" alt="portfolio" />
-                            <div class="overlay">
-                                <span class="fa fa-plus"></span>
-                                <h4>Soutenance</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" data-id="ui">
-                        <video width="320" height="240" controls>
-                            <source src="./img/portfolio/controlo/genererPDF.mp4" type="video/mp4">
-                        </video>
                     </div>
                 </div>
             </div>
