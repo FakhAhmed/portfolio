@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS, JavaScript, AI, Data Engineering, RAG, dbt, GCP">
+    <meta name="description" content="Modern Data Stack & Advanced RAG (IT Support) Project by Ahmed Fakhfakh">
+    <title>Modern Data Stack & Advanced RAG</title>
+    <link href="./css/header.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <link href="./css/home.css" rel="stylesheet" />
+    <link href="./css/about.css" rel="stylesheet" />
+    <link href="./css/service.css" rel="stylesheet" />
+    <link href="./css/portfolio.css" rel="stylesheet" />
+    <link href="./css/testimonials.css" rel="stylesheet" />
+    <link href="./css/blog.css" rel="stylesheet" />
+    <link href="./css/contact.css" rel="stylesheet" />
+    <link href="./css/footer.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="brand-b">
+                    <a href="index-en.html" class="logo">Back</a>
+                </div>
+            </div>
+            <div class="hamburger">
+            </div>
+            <div class="navbar">
+                <ul>
+                    <!-- Language Toggle Button -->
+                    <li><a href="modern-data-rag.html" style="font-weight: bold; color: #ff9800;">🇫🇷 FR</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="title">
+                    <h1>Modern Data Stack & RAG</h1>
+                </div>
+                <div class="img">
+                    <img src="img/portfolio/projects/modern-data-rag.png" alt='Modern Data Stack and RAG' />
+                </div>
+                <div class="text">
+                    <h6>About the project:</h6>
+                    <p>This project implements a complete data processing architecture (ELT) coupled with a generative
+                        AI system (Advanced RAG). It integrates a real-time mathematical audit to evaluate and block AI
+                        hallucinations, applied to the analysis of IT support tickets.</p><br>
+
+                    <p><strong>Why this project?</strong> This PoC demonstrates the ability to build a robust bridge
+                        between traditional data engineering (Modern Data Stack) and cutting-edge generative AI. It
+                        proves to enterprises that a RAG system can be deployed in production with confidence: the data
+                        is clean (thanks to dbt), the infrastructure is scalable (GCP Serverless), and above all, the
+                        AI's responses are mathematically measured and validated to prevent any hallucinations.</p><br>
+
+                    <h6>Key Features:</h6>
+                    <ul>
+                        <li><strong>Advanced RAG (Retrieval-Augmented Gen):</strong> Use of <strong>LlamaIndex</strong>
+                            for high-precision semantic search on an IT support ticket database.
+                        </li>
+                        <li><strong>Mathematical Audit (MLOps):</strong> Integration of real-time evaluators (RAGAS
+                            type) to visually calculate the <em>Faithfulness</em> (zero hallucinations) and
+                            <em>Relevancy</em> score of each AI-generated response.
+                        </li>
+                        <li><strong>Data Engineering (ELT):</strong> Raw data transformation pipeline using <strong>dbt
+                                Core</strong> directly within Google BigQuery (cleaning, date standardization, integrity
+                            testing).
+                        </li>
+                        <li><strong>Scalable Vectorization:</strong> Use of Google's embedding model (Vertex AI) and
+                            storage in <strong>Qdrant Cloud</strong> for ultra-fast vector search.</li>
+                        <li><strong>100% Serverless Automation:</strong> Replacement of heavy orchestrators (like
+                            Airflow) with a native GCP architecture combining <strong>Cloud Scheduler</strong> and
+                            <strong>Cloud Run Job</strong> for automated and cost-effective daily execution.
+                        </li>
+                        <li><strong>User Experience (UI/UX):</strong> Smooth <strong>Streamlit</strong> interface
+                            including an AI audit dashboard, direct display of sources (reference tickets), and secure
+                            asynchronous management.</li>
+                    </ul><br>
+
+                    <h6>Project Structure:</h6>
+                    <ul>
+                        <li><strong><code>/app/</code></strong> : "The Frontend". Contains the Streamlit user interface
+                            (<code>main.py</code>) and the display of the mathematical evaluation dashboard.</li>
+                        <li><strong><code>/dbt_transform/</code></strong> : "The Data Factory". Complete dbt project
+                            containing SQL cleaning models and BigQuery configuration.</li>
+                        <li><strong><code>/scripts/</code></strong> : "The Laboratory". Initial engineering scripts for
+                            mock data generation and local AI evaluation tests.</li>
+                        <li><strong><code>run_pipeline.py</code></strong> : Main entry point of the data pipeline
+                            (triggers dbt then ingestion into Qdrant).</li>
+                        <li><strong><code>Dockerfile.app</code> & <code>Dockerfile.pipeline</code></strong> : Separate
+                            containerization files adhering to Monorepo best practices.</li>
+                    </ul><br>
+
+                    <div class="skills">
+                        <h6>Technical Stack:</h6>
+                        <div class="skills-list">
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-brain"></i></span>Gemini 3.5 & Embeddings</li>
+                                <li><span class="fa-li"><i class="fas fa-book"></i></span>LlamaIndex</li>
+                                <li><span class="fa-li"><i class="fas fa-check-double"></i></span>Mathematical Audit
+                                </li>
+                                <li><span class="fa-li"><i class="fas fa-laptop-code"></i></span>Streamlit</li>
+                            </ul>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-filter"></i></span>dbt (Data Build Tool)</li>
+                                <li><span class="fa-li"><i class="fas fa-database"></i></span>Google BigQuery</li>
+                                <li><span class="fa-li"><i class="fas fa-layer-group"></i></span>Qdrant Cloud</li>
+                                <li><span class="fa-li"><i class="fas fa-clock"></i></span>Cloud Scheduler</li>
+                            </ul>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-server"></i></span>Cloud Run (Service & Job)
+                                </li>
+                                <li><span class="fa-li"><i class="fab fa-docker"></i></span>Docker (Monorepo)</li>
+                                <li><span class="fa-li"><i class="fab fa-python"></i></span>Python</li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            Live Application:
+                            <a target="_blank" href="https://modern-data-rag-app-342992646165.europe-west9.run.app"><i
+                                    class="fa fa-external-link"></i></a>
+                            &nbsp; | &nbsp; Source Code:
+                            <a target="_blank" href="https://github.com/FakhAhmed/modern-data-rag/tree/main"><i
+                                    class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="Projects">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h1>Media</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="filter-btn">
+                    <ul id="filterBtn">
+                        <li class="active" data-target="web">Images</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="gallery">
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/modern-data-rag.png" alt="portfolio" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Modern Data Stack & RAG</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-logo">Ahmed Fakhfakh</div>
+                <div class="social-link">
+                    <a target="_blank" href="https://github.com/FakhAhmed"><i class="fa fa-github"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/afakhfakh/"><i class="fa fa-linkedin"></i></a>
+                    <a target="_blank" href="mailto:fakhfakhahmed45@gmail.com"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
