@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, IA, Data, Machine Learning, XGBoost, Pandas">
-    <meta name="description" content="Projet de Prédiction Business (ML Classique) par Ahmed Fakhfakh">
-    <title>Prédiction Business (Machine Learning)</title>
+    <meta name="keywords"
+        content="HTML, CSS, JavaScript, IA, Data, Machine Learning, XGBoost, Pandas, MLOps, GCP, Cloud Run">
+    <meta name="description" content="Architecture MLOps & Prédiction Business par Ahmed Fakhfakh">
+    <title>Système MLOps de Prédiction d'Attrition | Ahmed Fakhfakh</title>
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/home.css" rel="stylesheet" />
@@ -41,48 +42,82 @@
         <div class="container">
             <div class="row">
                 <div class="title">
-                    <h1>Prédiction Business (ML)</h1>
+                    <h1>Système MLOps de Prédiction</h1>
                 </div>
                 <div class="img">
-                    <img src="img/portfolio/projects/ml-classique.png" alt='Machine Learning Classique' />
+                    <!-- Image principale : Interface Swagger -->
+                    <img src="img/portfolio/projects/ml-classique/demonstration-interactive.png"
+                        alt='Architecture MLOps GCP' />
                 </div>
                 <div class="text">
-                    <p style="color: #ff9800; font-weight: bold; font-size: 1.1em; padding-bottom: 10px;">
-                        <i class="fas fa-tools"></i> Ce projet est actuellement en cours de réalisation.
-                    </p>
 
                     <h6>À Propos du projet :</h6>
-                    <p>Ce projet "Flash" se concentre sur les fondamentaux de la Data Science appliquée aux
-                        problématiques métier (détection de fraude bancaire ou prédiction de désabonnement client).
-                        L'objectif est de démontrer une maîtrise parfaite de l'ingénierie des caractéristiques (Feature
-                        Engineering) et de la préparation de données structurées.</p><br>
+                    <p>Ce projet illustre le passage de la Data Science théorique à l'industrialisation logicielle
+                        (MLOps). Il s'agit d'une architecture de bout en bout, de l'entraînement d'un modèle XGBoost
+                        jusqu'à son déploiement en production sur Google Cloud Platform.</p><br>
 
-                    <h6>Objectifs et Fonctionnalités Prévues :</h6>
+                    <p><strong>Pourquoi ce projet ?</strong> Ce PoC démontre la capacité à transformer un modèle
+                        mathématique isolé en un microservice d'entreprise : robuste aux erreurs de données, déployé via
+                        des pipelines automatisés (GitOps), et sécurisé par des stratégies IAM strictes. C'est l'essence
+                        même de l'Ingénierie Data & IA moderne.</p><br>
+
+                    <h6>Fonctionnalités Clés :</h6>
                     <ul>
-                        <li><strong>Analyse Exploratoire (EDA) :</strong> Identification des corrélations, gestion des
-                            valeurs aberrantes et déséquilibres de classes.</li>
-                        <li><strong>Feature Engineering Propre :</strong> Création de nouvelles variables pertinentes
-                            pour le modèle mathématique.</li>
-                        <li><strong>Entraînement Modèle :</strong> Utilisation d'algorithmes de boosting à base d'arbres
-                            (XGBoost) très prisés dans l'industrie financière.</li>
-                        <li><strong>Interprétabilité :</strong> Explicabilité des prédictions du modèle pour le métier
-                            (ex: Feature Importance, SHAP values).</li>
+                        <li><strong>Découplage Code/Modèle (Dynamic Fetching) :</strong> Le modèle n'est plus "hardcodé"
+                            dans l'image Docker. L'API télécharge dynamiquement le fichier <code>.bst</code> au
+                            démarrage depuis un Bucket Cloud Storage sécurisé.</li>
+                        <li><strong>Gouvernance des Modèles (Vertex AI) :</strong> Intégration du Model Registry de
+                            Google. L'API interroge le catalogue officiel pour toujours récupérer et servir la version
+                            de production certifiée.</li>
+                        <li><strong>CI/CD Native (GitOps) :</strong> Déploiement entièrement automatisé via
+                            <strong>Google Cloud Build</strong>. Chaque <code>git push</code> déclenche le build Docker
+                            et le déploiement Serverless sans intervention humaine.
+                        </li>
+                        <li><strong>Sécurité "Least Privilege" (IAM) :</strong> L'API s'exécute sous un Service Account
+                            dédié, doté uniquement des permissions strictes de lecture, garantissant un cloisonnement
+                            total en cas de faille.</li>
+                        <li><strong>API Résiliente :</strong> Microservice <strong>FastAPI</strong> avec validation
+                            Pydantic et implémentation d'un "gilet de sauvetage" (Data Imputation) pour aligner
+                            dynamiquement les requêtes entrantes sur les caractéristiques requises par le modèle.</li>
+                    </ul><br>
+
+                    <h6>Structure du Projet :</h6>
+                    <ul>
+                        <li><strong><code>/api/</code></strong> : Code source de l'API REST (FastAPI). Gère la
+                            validation JSON, l'interrogation Vertex AI, et l'inférence.</li>
+                        <li><strong><code>cloudbuild.yaml</code></strong> : Le cerveau de l'automatisation.
+                            Orchestration des étapes du pipeline CI/CD (Build, Push, Deploy).</li>
+                        <li><strong><code>/notebooks/</code></strong> : Laboratoire de recherche contenant l'analyse
+                            exploratoire des données (EDA) et l'entraînement du modèle initial.</li>
+                        <li><strong><code>Dockerfile</code></strong> : Recette de conteneurisation assurant la
+                            portabilité absolue de l'application.</li>
                     </ul><br>
 
                     <div class="skills">
-                        <h6>Stack Technique Envisagée :</h6>
+                        <h6>Architecture Technique :</h6>
                         <div class="skills-list">
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-chart-line"></i></span>Scikit-Learn</li>
-                                <li><span class="fa-li"><i class="fas fa-project-diagram"></i></span>XGBoost</li>
+                                <li><span class="fa-li"><i class="fas fa-brain"></i></span>XGBoost / Scikit-Learn</li>
+                                <li><span class="fa-li"><i class="fas fa-server"></i></span>FastAPI / Uvicorn</li>
+                                <li><span class="fa-li"><i class="fab fa-python"></i></span>Python / Pandas</li>
                             </ul>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-table"></i></span>Pandas / NumPy</li>
-                                <li><span class="fa-li"><i class="fas fa-chart-pie"></i></span>Matplotlib / Seaborn</li>
+                                <li><span class="fa-li"><i class="fas fa-cloud"></i></span>GCP Cloud Run</li>
+                                <li><span class="fa-li"><i class="fas fa-cogs"></i></span>Google Cloud Build</li>
+                                <li><span class="fa-li"><i class="fas fa-database"></i></span>Google Cloud Storage</li>
+                            </ul>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-shield-alt"></i></span>Vertex AI Model Registry
+                                </li>
+                                <li><span class="fa-li"><i class="fas fa-key"></i></span>Cloud IAM (Securité)</li>
+                                <li><span class="fa-li"><i class="fab fa-docker"></i></span>Docker (Artifact Registry)
+                                </li>
                             </ul>
                         </div>
                         <div class="social">
-                            Application en ligne : <em><i class="fas fa-clock"></i> En cours</em>
+                            Application en ligne :
+                            <a target="_blank" href="https://api-churn-ml-306641727979.europe-west9.run.app/docs"><i
+                                    class="fa fa-external-link"></i></a>
                             &nbsp; | &nbsp; Code source :
                             <a target="_blank" href="https://github.com/FakhAhmed/ml-classique"><i
                                     class="fa fa-github"></i></a>
@@ -109,12 +144,86 @@
             </div>
             <div class="row">
                 <div class="gallery">
+                    <!-- Capture 1 : Swagger UI -->
                     <div class="item" data-id="web">
                         <div class="inner">
-                            <img src="./img/portfolio/projects/ml-classique.png" alt="portfolio" />
+                            <img src="./img/portfolio/projects/ml-classique/demonstration-interactive.png"
+                                alt="Démonstration Interactive API" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Logo</h4>
+                                <h4>Démonstration Interactive (FastAPI Swagger)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 2 : Cloud Build -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/ml-classique/automatisation.png"
+                                alt="Pipeline CI/CD Cloud Build" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Automatisation CI/CD (Cloud Build)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 3 : Artifact Registry -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/ml-classique/artifact_registry.png"
+                                alt="Registre Docker Artifact Registry" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Packaging Docker (Artifact Registry)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 4 : Cloud Storage -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/ml-classique/decouplage.png"
+                                alt="Découplage Cloud Storage" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Découplage Stockage (Google Cloud Storage)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 5 : Vertex AI -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/ml-classique/model_registry.png"
+                                alt="Registre de modèles Vertex AI" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Gouvernance MLOps (Vertex AI Model Registry)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 6 : Cloud Run -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/ml-classique/cloud_run.png"
+                                alt="Déploiement Serverless Cloud Run" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Déploiement Serverless (Cloud Run)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 7 : IAM Security -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/ml-classique/iam.png"
+                                alt="Sécurité IAM et Service Account" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Sécurité "Least Privilege" (Cloud IAM)</h4>
                             </div>
                         </div>
                     </div>
