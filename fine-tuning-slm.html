@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, IA, LLM, SLM, Fine-Tuning, MLOps, LoRA">
-    <meta name="description" content="Usine de Fine-Tuning (SLM) par Ahmed Fakhfakh">
-    <title>Usine de Fine-Tuning (SLM & MLOps)</title>
+    <meta name="keywords"
+        content="HTML, CSS, JavaScript, IA, LLM, SLM, Fine-Tuning, MLOps, LoRA, Hugging Face, MLflow, GCP, Cloud Run, Unsloth, Llama-3">
+    <meta name="description" content="Usine de Fine-Tuning (SLM) et MLOps par Ahmed Fakhfakh">
+    <title>Usine de Fine-Tuning (SLM & MLOps) | Ahmed Fakhfakh</title>
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/home.css" rel="stylesheet" />
@@ -44,55 +45,79 @@
                     <h1>Usine de Fine-Tuning (SLM)</h1>
                 </div>
                 <div class="img">
-                    <img src="img/portfolio/projects/fine-tuning-slm.png" alt='Usine de Fine-Tuning SLM' />
+                    <!-- Image principale : Interface Gradio -->
+                    <img src="img/portfolio/projects/fine-tuning-slm/interface-gradio.png" alt='Interface Gradio SLM' />
                 </div>
                 <div class="text">
-                    <p style="color: #ff9800; font-weight: bold; font-size: 1.1em; padding-bottom: 10px;">
-                        <i class="fas fa-tools"></i> Ce projet est actuellement en cours de réalisation.
-                    </p>
 
                     <h6>À Propos du projet :</h6>
-                    <p>Concevoir une usine MLOps complète dédiée au ré-entraînement de Petits Modèles de Langage (Small
-                        Language Models). L'objectif est de prendre un modèle léger performant (type Llama-3 8B ou
-                        Phi-4) et de le spécialiser sur un domaine métier précis (droit ou médecine), tout en
-                        garantissant un suivi rigoureux des expériences via MLflow.</p><br>
+                    <p>Une architecture Machine Learning de bout en bout, du versioning des données jusqu'au fine-tuning
+                        d'un Small Language Model (SLM) et son déploiement web. Ce projet démontre la mise en place d'un
+                        pipeline MLOps complet pour spécialiser un modèle de langage puissant (Llama-3 8B) sur des
+                        tâches d'analyse de sentiment financier, orchestré sur l'écosystème Google Cloud et Hugging
+                        Face.</p><br>
 
-                    <h6>Objectifs et Fonctionnalités Prévues :</h6>
+                    <p><strong>Pourquoi ce projet ?</strong> Ce PoC illustre la complexité réelle de l'ingénierie autour
+                        des Large Language Models (LLMOps). Il prouve la capacité à dépasser le simple script Python
+                        pour
+                        construire une véritable "usine" logicielle : capable de gérer des données versionnées,
+                        d'optimiser
+                        l'entraînement de milliards de paramètres, et de traquer rigoureusement les expérimentations sur
+                        le Cloud.</p><br>
+
+                    <h6>Fonctionnalités Clés :</h6>
                     <ul>
-                        <li><strong>PEFT / LoRA :</strong> Entraînement paramétrique efficace (Low-Rank Adaptation) pour
-                            adapter le modèle sans exiger de clusters GPU hors de prix.</li>
-                        <li><strong>Optimisation de la vitesse :</strong> Intégration de la librairie <em>Unsloth</em>
-                            pour accélérer drastiquement les temps de fine-tuning.</li>
-                        <li><strong>Traçabilité MLOps (Expérimentations) :</strong> Utilisation de
-                            <strong>MLflow</strong> pour comparer les hyperparamètres, la perte d'entraînement (loss) et
-                            gérer le registre des modèles.
-                        </li>
-                        <li><strong>Versionning des Données :</strong> Suivi des datasets d'entraînement via
-                            <strong>DVC</strong> (Data Version Control).
-                        </li>
-                        <li><strong>Serving Temps Réel :</strong> Déploiement du modèle spécialisé derrière une API
-                            <strong>FastAPI</strong> prête pour la production.
-                        </li>
+                        <li><strong>Fine-Tuning PEFT / LoRA :</strong> Spécialisation du modèle fondation Meta Llama-3
+                            sans ré-entraîner tous les poids. Utilisation de la quantification 4-bit (Unsloth) pour une
+                            optimisation drastique de la VRAM (entraînement sur GPU T4).</li>
+                        <li><strong>Versioning des Données (DVC) :</strong> La donnée financière est traitée comme du
+                            code.
+                            Son historique est strictement versionné via Data Version Control (DVC) avec un stockage
+                            distant sécurisé sur Google Cloud Storage.</li>
+                        <li><strong>Tracking d'Expérimentations (MLflow) :</strong> Déploiement d'un serveur MLflow
+                            propriétaire sur Google Cloud Run (Serverless). Chaque métrique (Loss) est enregistrée en
+                            direct dans le cloud.</li>
+                        <li><strong>Inférence Interactive (Hugging Face) :</strong> Le modèle fine-tuné est hébergé
+                            publiquement et interrogé via une interface web fluide développée avec Gradio, prouvant la
+                            capacité de "Serving" du modèle.</li>
+                    </ul><br>
+
+                    <h6>Structure du Projet :</h6>
+                    <ul>
+                        <li><strong><code>/data/</code></strong> : Espace de stockage des jeux de données
+                            d'entraînement,
+                            trackés et versionnés par DVC.</li>
+                        <li><strong><code>/notebooks/</code></strong> : Laboratoire d'entraînement central exécutant le
+                            fine-tuning Unsloth et poussant les métriques vers le serveur MLflow distant.</li>
+                        <li><strong><code>/src/</code></strong> : Code source de l'interface web (Gradio). Charge
+                            dynamiquement le modèle de base et l'adaptateur LoRA.</li>
+                        <li><strong><code>dvc.yaml</code></strong> : Le cerveau du pipeline de données vers GCP.</li>
                     </ul><br>
 
                     <div class="skills">
-                        <h6>Stack Technique Envisagée :</h6>
+                        <h6>Architecture Technique :</h6>
                         <div class="skills-list">
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-brain"></i></span>Llama-3 8B / Phi-4</li>
+                                <li><span class="fa-li"><i class="fas fa-brain"></i></span>Llama-3 8B / PyTorch</li>
                                 <li><span class="fa-li"><i class="fas fa-layer-group"></i></span>LoRA / Unsloth</li>
+                                <li><span class="fa-li"><i class="fas fa-code-branch"></i></span>DVC (Versioning Data)
+                                </li>
                             </ul>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-chart-area"></i></span>MLflow</li>
-                                <li><span class="fa-li"><i class="fas fa-code-branch"></i></span>DVC</li>
+                                <li><span class="fa-li"><i class="fas fa-chart-area"></i></span>MLflow (Tracking)</li>
+                                <li><span class="fa-li"><i class="fas fa-cloud"></i></span>GCP Cloud Run</li>
+                                <li><span class="fa-li"><i class="fas fa-database"></i></span>GCP Cloud Storage</li>
                             </ul>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-bolt"></i></span>FastAPI</li>
-                                <li><span class="fa-li"><i class="far fa-smile"></i></span>Hugging Face</li>
+                                <li><span class="fa-li"><i class="far fa-smile"></i></span>Hugging Face Hub</li>
+                                <li><span class="fa-li"><i class="fas fa-bolt"></i></span>Gradio (UI Web)</li>
+                                <li><span class="fa-li"><i class="fab fa-python"></i></span>Python / TRL</li>
                             </ul>
                         </div>
                         <div class="social">
-                            App & Métriques : <em><i class="fas fa-clock"></i> En cours</em>
+                            Lien du modèle:
+                            <a target="_blank" href="https://huggingface.co/FakhAhmed/slm-finance-sentiment"><i
+                                    class="fa fa-external-link"></i></a>
                             &nbsp; | &nbsp; Code source :
                             <a target="_blank" href="https://github.com/FakhAhmed/fine-tuning-slm"><i
                                     class="fa fa-github"></i></a>
@@ -119,12 +144,74 @@
             </div>
             <div class="row">
                 <div class="gallery">
+
+                    <!-- Capture 1 : Interface Gradio -->
                     <div class="item" data-id="web">
                         <div class="inner">
-                            <img src="./img/portfolio/projects/fine-tuning-slm.png" alt="portfolio" />
+                            <img src="./img/portfolio/projects/fine-tuning-slm/interface-gradio.png"
+                                alt="Démonstration Interactive Gradio" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Logo</h4>
+                                <h4>Interface Web d'Inférence (Gradio)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 2 : MLflow -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/fine-tuning-slm/mlflow.png" alt="Dashboard MLflow" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Tracking d'Expérimentations (MLflow)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 3 : Colab Unsloth -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/fine-tuning-slm/colab.png"
+                                alt="Entraînement GPU Unsloth" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Usine de Calcul GPU (Unsloth / LoRA)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 4 : Hugging Face -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/fine-tuning-slm/hugging-face-hub.png"
+                                alt="Hugging Face Model Hub" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Registre du Modèle (Hugging Face Hub)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 5 : Cloud Storage / DVC -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/fine-tuning-slm/cloud-storage.png"
+                                alt="Google Cloud Storage" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Stockage Artefacts & DVC (Cloud Storage)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 6 : Cloud Run -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/fine-tuning-slm/cloud-run.png"
+                                alt="Google Cloud Run MLflow" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Serveur MLflow Serverless (Cloud Run)</h4>
                             </div>
                         </div>
                     </div>
