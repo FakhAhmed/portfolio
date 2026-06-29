@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, Data Engineering, Kafka, Flink, Streaming">
-    <meta name="description" content="Pipeline Streaming Temps Réel par Ahmed Fakhfakh">
-    <title>Pipeline Streaming (Kafka & Flink)</title>
+    <meta name="keywords"
+        content="HTML, CSS, JavaScript, Data Engineering, Streaming, Kafka, Flink, Iceberg, MLOps, GCP, BigQuery">
+    <meta name="description" content="Pipeline Streaming Temps Réel & Détection de Fraude par Ahmed Fakhfakh">
+    <title>Pipeline Streaming & ML Embarqué | Ahmed Fakhfakh</title>
     <link href="./css/header.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
     <link href="./css/home.css" rel="stylesheet" />
@@ -41,49 +42,80 @@
         <div class="container">
             <div class="row">
                 <div class="title">
-                    <h1>Pipeline Streaming (Kafka)</h1>
+                    <h1>Pipeline Streaming & ML Embarqué</h1>
                 </div>
                 <div class="img">
-                    <img src="img/portfolio/projects/streaming.png" alt='Pipeline Streaming Temps Réel' />
+                    <!-- Image principale : Interface BigQuery avec le modèle IA -->
+                    <img src="img/portfolio/projects/pipeline-streaming/bigquery-ia.png" alt='Dashboard BigQuery IA' />
                 </div>
                 <div class="text">
-                    <p style="color: #ff9800; font-weight: bold; font-size: 1.1em; padding-bottom: 10px;">
-                        <i class="fas fa-tools"></i> Ce projet est actuellement en cours de réalisation.
-                    </p>
 
                     <h6>À Propos du projet :</h6>
-                    <p>Un projet pur de Data Engineering visant à démontrer la capacité de traiter des flux de données à
-                        haute vélocité en temps réel (millisecondes). L'architecture remplacera les approches classiques
-                        de traitement par lots (Batch) pour se concentrer sur l'ingestion, la transformation et le
-                        stockage de données asynchrones continues.</p><br>
+                    <p>Une architecture complète de traitement de données en streaming à haute vélocité couplée à un
+                        système d'intelligence artificielle en temps réel (In-Line ML Inference). Ce projet démontre la
+                        mise en place d'un pipeline Big Data de bout en bout pour l'ingestion, l'analyse temporelle
+                        complexe, et la détection instantanée de fraudes bancaires, orchestré sur l'écosystème Apache et
+                        Google Cloud.</p><br>
 
-                    <h6>Objectifs et Fonctionnalités Prévues :</h6>
+                    <p><strong>Pourquoi ce projet ?</strong> Ce PoC prouve qu'il est possible de stopper une transaction
+                        frauduleuse en quelques millisecondes (grâce à Kafka et Flink) tout en garantissant des
+                        propriétés transactionnelles ACID sur le Data Lake (grâce à Iceberg) pour les analyses futures.
+                        Il illustre la fusion parfaite entre le Data Engineering de flux et l'industrialisation de
+                        modèles de Machine Learning (MLOps) en environnement contraint.</p><br>
+
+                    <h6>Fonctionnalités Clés :</h6>
                     <ul>
-                        <li><strong>Ingestion d'événements :</strong> Mise en place de producteurs asynchrones (Event
-                            Brokers) gérant de hauts débits de données.</li>
-                        <li><strong>Traitement à la volée :</strong> Transformation, agrégation temporelle et
-                            enrichissement des données en transit.</li>
-                        <li><strong>Stockage Lakehouse :</strong> Sauvegarde robuste respectant les propriétés ACID pour
-                            l'historisation des données lues en streaming.</li>
-                        <li><strong>Tolérance aux pannes :</strong> Gestion des offsets et reprise après incident
-                            inhérente à l'architecture distribuée.</li>
+                        <li><strong>Contrat d'Interface (Gouvernance) :</strong> Utilisation d'Apache Avro et de
+                            Confluent Schema Registry pour valider et rejeter à la source toute donnée ne respectant pas
+                            le schéma établi, protégeant ainsi le Data Lake.</li>
+                        <li><strong>Stateful Processing & Fenêtres Temporelles :</strong> Utilisation d'Apache Flink
+                            pour traquer le comportement des fraudeurs sur la durée grâce au calcul d'agrégations
+                            complexes sur des fenêtres glissantes (Hop Windows) et la gestion des retards réseau
+                            (Watermarks).</li>
+                        <li><strong>Inférence ML Embarquée (In-Line ML) :</strong> Injection d'un modèle d'Intelligence
+                            Artificielle (UDF Python) directement dans la mémoire de l'exécuteur Flink (TaskManager)
+                            pour scorer la probabilité de fraude en moins d'une milliseconde sans appel réseau externe.
+                        </li>
+                        <li><strong>Résilience & Architecture Multi-Sink :</strong> Isolation automatique des événements
+                            corrompus vers une Dead Letter Queue (DLQ) et routage asynchrone pour expédier simultanément
+                            la donnée froide (GCP/Iceberg) et alerter en temps réel via Kafka.</li>
+                    </ul><br>
+
+                    <h6>Structure du Projet :</h6>
+                    <ul>
+                        <li><strong><code>/producer/</code></strong> : Le "Générateur". Contient le script de simulation
+                            bancaire, la définition stricte du schéma de données Avro, et le microservice d'écoute pour
+                            la simulation d'envoi de SMS en temps réel.</li>
+                        <li><strong><code>/flink_jobs/</code></strong> : Le "Moteur de Streaming". Contient le cœur de
+                            l'architecture (PyFlink SQL), la fonction de Machine Learning (UDF Python), ainsi que les
+                            connecteurs JAR vers Kafka et Google Cloud.</li>
+                        <li><strong><code>docker-compose.yml</code></strong> : L'infrastructure locale déployant les
+                            nœuds de calcul Flink, le cluster Kafka et le Schema Registry.</li>
                     </ul><br>
 
                     <div class="skills">
-                        <h6>Stack Technique Envisagée :</h6>
+                        <h6>Architecture Technique :</h6>
                         <div class="skills-list">
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-network-wired"></i></span>Apache Kafka</li>
-                                <li><span class="fa-li"><i class="fas fa-stream"></i></span>Apache Flink</li>
+                                <li><span class="fa-li"><i class="fas fa-stream"></i></span>Apache Flink (PyFlink)</li>
+                                <li><span class="fa-li"><i class="fas fa-project-diagram"></i></span>Apache Kafka</li>
+                                <li><span class="fa-li"><i class="fas fa-file-code"></i></span>Avro & Schema Registry
+                                </li>
                             </ul>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fas fa-database"></i></span>Delta Lake / Iceberg</li>
+                                <li><span class="fa-li"><i class="fas fa-database"></i></span>Apache Iceberg</li>
+                                <li><span class="fa-li"><i class="fas fa-cloud"></i></span>Google Cloud Storage</li>
+                                <li><span class="fa-li"><i class="fas fa-search-dollar"></i></span>Google BigQuery</li>
+                            </ul>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fas fa-brain"></i></span>Python UDF (Machine Learning)
+                                </li>
                                 <li><span class="fa-li"><i class="fab fa-docker"></i></span>Docker Compose</li>
+                                <li><span class="fa-li"><i class="fas fa-shield-alt"></i></span>DLQ & Multi-Sink</li>
                             </ul>
                         </div>
                         <div class="social">
-                            Application en ligne : <em><i class="fas fa-clock"></i> En cours</em>
-                            &nbsp; | &nbsp; Code source :
+                            Code source :
                             <a target="_blank" href="https://github.com/FakhAhmed/pipeline-streaming"><i
                                     class="fa fa-github"></i></a>
                         </div>
@@ -97,7 +129,7 @@
         <div class="container">
             <div class="row">
                 <div class="title text-center">
-                    <h1>Média</h1>
+                    <h1>Média & Preuves de Concept</h1>
                 </div>
             </div>
             <div class="row">
@@ -109,12 +141,63 @@
             </div>
             <div class="row">
                 <div class="gallery">
+
+                    <!-- Capture 1 : BigQuery IA -->
                     <div class="item" data-id="web">
                         <div class="inner">
-                            <img src="./img/portfolio/projects/streaming.png" alt="portfolio" />
+                            <img src="./img/portfolio/projects/pipeline-streaming/bigquery-ia.png"
+                                alt="Data Lakehouse (BigQuery & Iceberg + IA)" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Logo</h4>
+                                <h4>Data Lakehouse (BigQuery & Iceberg + IA)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 2 : Flink Dashboard -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/pipeline-streaming/flink-dashboard.png"
+                                alt="Dashboard Apache Flink" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Traitement Distribué (Apache Flink)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 3 : Kafka Alerts -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/pipeline-streaming/kafka-alerts.png"
+                                alt="Alerting Kafka Temps Réel" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Alerting Opérationnel Multi-Sink (Kafka)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 4 : GCS Iceberg -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/pipeline-streaming/gcs-iceberg.png"
+                                alt="Google Cloud Storage Iceberg" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Stockage Transactionnel (GCS & Iceberg)</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capture 5 : Producer Avro -->
+                    <div class="item" data-id="web">
+                        <div class="inner">
+                            <img src="./img/portfolio/projects/pipeline-streaming/producer-avro.png"
+                                alt="Gouvernance Avro Schema Registry" />
+                            <div class="overlay">
+                                <span class="fa fa-plus"></span>
+                                <h4>Gouvernance Stricte (Avro & Schema Registry)</h4>
                             </div>
                         </div>
                     </div>
