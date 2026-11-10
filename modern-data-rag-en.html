@@ -50,22 +50,19 @@
                 <div class="text">
                     <h6>About the project:</h6>
                     <p>This project implements a complete data processing architecture (ELT) coupled with a generative
-                        AI system (Advanced RAG). It integrates a real-time mathematical audit to evaluate and block AI
-                        hallucinations, applied to the analysis of IT support tickets.</p><br>
+                        AI system (Advanced RAG). Every AI answer is automatically evaluated (faithfulness to sources and relevancy) to detect hallucinations, applied to the analysis of IT support tickets.</p><br>
 
                     <p><strong>Why this project?</strong> This PoC demonstrates the ability to build a robust bridge
                         between traditional data engineering (Modern Data Stack) and cutting-edge generative AI. It
                         proves to enterprises that a RAG system can be deployed in production with confidence: the data
-                        is clean (thanks to dbt), the infrastructure is scalable (GCP Serverless), and above all, the
-                        AI's responses are mathematically measured and validated to prevent any hallucinations.</p><br>
+                        is clean (thanks to dbt), the infrastructure is scalable (GCP Serverless), and above all, every AI answer is automatically evaluated to detect hallucinations.</p><br>
 
                     <h6>Key Features:</h6>
                     <ul>
                         <li><strong>Advanced RAG (Retrieval-Augmented Gen):</strong> Use of <strong>LlamaIndex</strong>
                             for high-precision semantic search on an IT support ticket database.
                         </li>
-                        <li><strong>Mathematical Audit (MLOps):</strong> Integration of real-time evaluators (RAGAS
-                            type) to visually calculate the <em>Faithfulness</em> (zero hallucinations) and
+                        <li><strong>Automatic Evaluation (LLM-as-a-judge):</strong> LlamaIndex evaluators compute and display the <em>Faithfulness</em> (answer grounded in source tickets) and
                             <em>Relevancy</em> score of each AI-generated response.
                         </li>
                         <li><strong>Data Engineering (ELT):</strong> Raw data transformation pipeline using <strong>dbt
@@ -165,7 +162,7 @@
                             <img src="./img/portfolio/projects/modern_data_rag/it-rag-ui-success.png" alt="UI" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Total Success (RAGAS Audit)</h4>
+                                <h4>Validated Answer (faithfulness + relevancy)</h4>
                             </div>
                         </div>
                     </div>

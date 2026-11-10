@@ -34,6 +34,8 @@
                     <ul>
                         <li><a href="#home" class="active">Home</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#Experience">Experience</a></li>
+                        <li><a href="#Research">Research</a></li>
                         <li><a href="#Education">Education</a></li>
                         <li><a href="#Projects">Projects</a></li>
                         <li><a href="#Certifications">Certifications</a></li>
@@ -52,8 +54,7 @@
                     <div class="block">
                         <h6>Hi! My name is</h6>
                         <h1>Ahmed Fakhfakh</h1>
-                        <h3>Junior Data & AI Engineer seeking a Permanent Position starting October 1st,
-                            2026.</h3>
+                        <h3>Data & AI Engineer, available immediately for a permanent position.</h3>
                         <div class="cv-btn">
                             <a target="_blank" href="img/FAKHFAKH_Ahmed_CV_EN.pdf" download>Download Resume</a>
                         </div>
@@ -80,9 +81,8 @@
                         </div>
                         <div class="text">
                             <h4>My name is Ahmed Fakhfakh</h4>
-                            <h6>Data & AI Engineering Apprentice at <a target="_blank"
-                                    href="https://polytech.univ-nantes.fr/en/">Polytech Nantes</a> & <a target="_blank"
-                                    href="https://www.opmobility.com/en/">OPmobility</a>
+                            <h6>Data & AI Engineering graduate from <a target="_blank"
+                                    href="https://polytech.univ-nantes.fr/en/">Polytech Nantes</a>, 3-year apprenticeship at <a target="_blank" href="https://www.opmobility.com/en/">OPmobility</a>
                             </h6>
                             <p>Ambitious and passionate about Data and Artificial Intelligence, I have gained solid R&D
                                 experience during my 3-year apprenticeship at OPmobility. In parallel, I have validated
@@ -90,9 +90,8 @@
                                 I continuously apply my skills through advanced personal projects.
                             </p>
                             <br>
-                            <h6>After Graduation?</h6>
-                            <p>I aim to pursue my career as a Data & AI Engineer (Permanent Role) or deepen my applied
-                                research expertise through a CIFRE PhD starting October 1st, 2026.
+                            <h6>What I'm Looking For</h6>
+                            <p>A permanent AI Engineer, Data Engineer or MLOps role, available immediately.
                             </p>
                             <div class="skills">
                                 <h6>My Tech Stack:</h6>
@@ -120,6 +119,7 @@
                                         <li><span class="fa-li"><i class="fas fa-book"></i></span>LlamaIndex</li>
                                         <li><span class="fa-li"><i class="fas fa-layer-group"></i></span>Qdrant</li>
                                         <li><span class="fa-li"><i class="far fa-smile"></i></span>HuggingFace</li>
+                                        <li><span class="fa-li"><i class="fas fa-microchip"></i></span>TensorRT</li>
                                     </ul>
 
                                     <!-- Column 3 : Data Eng & MLOps -->
@@ -129,7 +129,8 @@
                                         <li><span class="fa-li"><i class="fas fa-chart-area"></i></span>MLflow</li>
                                         <li><span class="fa-li"><i class="fas fa-code-branch"></i></span>DVC</li>
                                         <li><span class="fa-li"><i class="fas fa-wrench"></i></span>LangSmith</li>
-                                        <li><span class="fa-li"><i class="fas fa-check-double"></i></span>RAGAS</li>
+                                        <li><span class="fa-li"><i class="fas fa-stream"></i></span>Kafka</li>
+                                        <li><span class="fa-li"><i class="fas fa-water"></i></span>Flink</li>
                                     </ul>
 
                                     <!-- Column 4 : DevOps & Tools -->
@@ -156,6 +157,63 @@
         </div>
     </section>
 
+    <section class="xp-section light" id="Experience">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h1>Experience</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="service-content">
+                    <div class="box wide">
+                        <div class="icon"><i class="fas fa-microchip"></i></div>
+                        <h5>Embedded AI Engineer (Apprenticeship) | OPmobility (OP'nSoft) | Oct. 2023 – Sep. 2026</h5>
+                        <h6>Levallois-Perret, France · 4D radar R&amp;D for autonomous driving</h6>
+                        <p>Ported a 4D radar detection model (RaDelft) to an NVIDIA Jetson AGX Orin, working in tandem with a PhD researcher.</p>
+                        <div class="metrics">
+                            <div class="metric"><strong>4.6×</strong><span>GPU latency (865 → 188 ms)</span></div>
+                            <div class="metric"><strong>÷3</strong><span>RAM (10.2 → 3.5 GB)</span></div>
+                            <div class="metric"><strong>Pd 0.58</strong><span>accuracy preserved (vs 0.59)</span></div>
+                        </div>
+                        <ul>
+                            <li><strong>Hardware-in-the-Loop</strong> test bench (TCP streaming of 122 MB radar frames) and ablation study: sparse networks, MobileNet-V2, FIFO cache with multiprocessing, distillation, smart downsampling.</li>
+                            <li><strong>TensorRT FP16</strong> compilation: from 1.16 to 5.3 FPS, board temperature down from 65.5 to 52&nbsp;°C.</li>
+                            <li>Diagnosed the <em>mixed-precision fallback</em> that made INT8 slower than FP16, and recommended a pivot to a natively sparse architecture, realized in the attention-based approach below.</li>
+                        </ul>
+                        <p class="tags">Python · PyTorch · TensorRT · ONNX · CUDA · NVIDIA Jetson · Perfetto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="xp-section white" id="Research">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h1>Research</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="service-content">
+                    <div class="box wide">
+                        <div class="icon"><i class="fas fa-satellite-dish"></i></div>
+                        <h5>Tailored Attention Mechanism for Radar Point-Cloud Generation on Embedded GPUs</h5>
+                        <h6>A. Hernandez, A. Pegatoquet, J.-Y. Dauvignac, R. Christy-Krishanth, <strong>A. Fakhfakh</strong> · Submitted to IEEE RadarConf 2027 (Bangalore, May 2027)</h6>
+                        <p>Instead of convolving the whole radar cube (15.4 million bins, over 99% of them noise), a radar tokenizer keeps about 30,000 candidate cells, then an asymmetric-attention transformer decides which ones form the point cloud.</p>
+                        <div class="metrics">
+                            <div class="metric"><strong>21 FPS</strong><span>on Jetson Orin (vs 7.2)</span></div>
+                            <div class="metric"><strong>3.6×</strong><span>fewer operations (109 vs 398 GFLOPs)</span></div>
+                            <div class="metric"><strong>4×</strong><span>less energy per frame</span></div>
+                        </div>
+                        <p class="tags">Same detection as the CNN baseline (Pd 0.779 vs 0.767) · ONNX → TensorRT FP16 deployment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="services" id="Education">
         <div class="container">
             <div class="row">
@@ -169,7 +227,7 @@
                         <div class="icon"><i class="fa fa-university"></i></div>
                         <h5>Polytech Nantes | 2023-2026</h5>
                         <h6>Nantes, France</h6>
-                        <p>Engineering Degree<br>
+                        <p>Engineering Degree (apprenticeship)<br>
                             Data Engineering & Artificial Intelligence<br>
                         </p>
                     </div>
@@ -177,7 +235,7 @@
                         <div class="icon"><i class="fa fa-university"></i></div>
                         <h5>IUT de Bayonne et du Pays Basque | 2021-2023</h5>
                         <h6>Anglet, France</h6>
-                        <p>Two-year Technical Degree<br>
+                        <p>Two-year Technical Degree (DUT)<br>
                             Computer Science<br>
                         </p>
                     </div>

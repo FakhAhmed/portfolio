@@ -51,15 +51,12 @@
                 <div class="text">
                     <h6>À Propos du projet :</h6>
                     <p>Ce projet implémente une architecture complète de traitement de données (ELT) couplée à un
-                        système d'IA générative (Advanced RAG). Il intègre un audit mathématique en temps réel pour
-                        évaluer et bloquer les hallucinations de l'IA, appliqué à l'analyse de tickets de support
-                        informatique.</p><br>
+                        système d'IA générative (Advanced RAG). Chaque réponse de l'IA est évaluée automatiquement (fidélité aux sources et pertinence) pour détecter les hallucinations, appliqué à l'analyse de tickets de support informatique.</p><br>
 
                     <p><strong>Pourquoi ce projet ?</strong> Ce PoC démontre la capacité à créer un pont robuste entre
                         l'ingénierie des données classique (Modern Data Stack) et l'IA générative de pointe. Il prouve
                         aux entreprises qu'un RAG peut être mis en production en toute confiance : les données sont
-                        propres (grâce à dbt), l'infrastructure est scalable (Serverless GCP), et surtout, les réponses
-                        de l'IA sont mesurées et validées mathématiquement pour éviter toute hallucination.</p><br>
+                        propres (grâce à dbt), l'infrastructure est scalable (Serverless GCP), et surtout, chaque réponse de l'IA est évaluée automatiquement pour détecter les hallucinations.</p><br>
 
                     <h6>Fonctionnalités Clés :</h6>
                     <ul>
@@ -67,8 +64,7 @@
                             <strong>LlamaIndex</strong> pour une recherche sémantique de haute précision sur une base de
                             données de tickets informatiques.
                         </li>
-                        <li><strong>Audit Mathématique (MLOps) :</strong> Intégration d'évaluateurs en temps réel (type
-                            RAGAS) pour calculer visuellement le score de <em>Fidélité</em> (zéro hallucination) et de
+                        <li><strong>Évaluation automatique (LLM-as-a-judge) :</strong> Intégration des évaluateurs LlamaIndex pour calculer et afficher le score de <em>Fidélité</em> (réponse fondée sur les tickets sources) et de
                             <em>Pertinence</em> de chaque réponse générée par l'IA.
                         </li>
                         <li><strong>Data Engineering (ELT) :</strong> Pipeline de transformation des données brutes avec
@@ -169,7 +165,7 @@
                             <img src="./img/portfolio/projects/modern_data_rag/it-rag-ui-success.png" alt="UI" />
                             <div class="overlay">
                                 <span class="fa fa-plus"></span>
-                                <h4>Succès Total (Audit RAGAS)</h4>
+                                <h4>Réponse validée (fidélité + pertinence)</h4>
                             </div>
                         </div>
                     </div>

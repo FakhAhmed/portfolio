@@ -37,6 +37,8 @@
                <ul>
                   <li><a href="#home" class="active">Accueil</a></li>
                   <li><a href="#about">À propos</a></li>
+                  <li><a href="#Experience">Expérience</a></li>
+                  <li><a href="#Recherche">Recherche</a></li>
                   <li><a href="#Formation">Formation</a></li>
                   <li><a href="#Projets">Projets</a></li>
                   <li><a href="#Certifications">Certifications</a></li>
@@ -53,8 +55,7 @@
                <div class="block">
                   <h6>Salut! je m'appelle</h6>
                   <h1>Ahmed Fakhfakh</h1>
-                  <h3>Ingénieur Data & IA junior à la recherche d'un CDI à partir du 1er octobre
-                     2026.</h3>
+                  <h3>Ingénieur Data & IA, disponible immédiatement pour un CDI.</h3>
                   <div class="cv-btn">
                      <a target="_blank" href="img/FAKHFAKH_Ahmed_CV_FR.pdf" download>Télécharger CV</a>
                   </div>
@@ -80,10 +81,10 @@
                   </div>
                   <div class="text">
                      <h4>Je m'appelle Ahmed Fakhfakh</h4>
-                     <h6>Apprenti Ingénieur en Ingénierie des données et de l’intelligence artificielle à <a
+                     <h6>Ingénieur diplômé en Ingénierie des données et de l’intelligence artificielle de <a
                            target="_blank"
                            href="https://polytech.univ-nantes.fr/fr/les-formations/cycle-ingenieur/idia">Polytech
-                           Nantes</a> & <a target="_blank" href="https://www.opmobility.com/fr/">OPmobility</a>
+                           Nantes</a>, 3 ans d'alternance chez <a target="_blank" href="https://www.opmobility.com/fr/">OPmobility</a>
                      </h6>
                      <p>Ambitieux et passionné par la Data et l'Intelligence Artificielle, je possède une solide
                         expérience en R&D acquise lors de mes 3 ans d'alternance chez OPmobility. En parallèle, j'ai
@@ -92,9 +93,8 @@
                         projets personnels avancés.
                      </p>
                      <br>
-                     <h6>Après le cycle ingénieur ?</h6>
-                     <p>Je souhaite poursuivre ma carrière en tant qu'Ingénieur Data & IA (CDI) ou approfondir mon
-                        expertise en recherche appliquée via un Doctorat CIFRE à partir du 1er octobre 2026.
+                     <h6>Ce que je recherche</h6>
+                     <p>Un poste en CDI d'AI Engineer, Data Engineer ou MLOps, disponible immédiatement.
                      </p>
                      <div class="skills">
                         <h6>Ma Stack Technique :</h6>
@@ -120,6 +120,7 @@
                               <li><span class="fa-li"><i class="fas fa-book"></i></span>LlamaIndex</li>
                               <li><span class="fa-li"><i class="fas fa-layer-group"></i></span>Qdrant</li>
                               <li><span class="fa-li"><i class="far fa-smile"></i></span>HuggingFace</li>
+                              <li><span class="fa-li"><i class="fas fa-microchip"></i></span>TensorRT</li>
                            </ul>
 
                            <!-- Colonne 3 : Data Eng & MLOps -->
@@ -129,7 +130,8 @@
                               <li><span class="fa-li"><i class="fas fa-chart-area"></i></span>MLflow</li>
                               <li><span class="fa-li"><i class="fas fa-code-branch"></i></span>DVC</li>
                               <li><span class="fa-li"><i class="fas fa-wrench"></i></span>LangSmith</li>
-                              <li><span class="fa-li"><i class="fas fa-check-double"></i></span>RAGAS</li>
+                              <li><span class="fa-li"><i class="fas fa-stream"></i></span>Kafka</li>
+                              <li><span class="fa-li"><i class="fas fa-water"></i></span>Flink</li>
                            </ul>
 
                            <!-- Colonne 4 : DevOps & Outils -->
@@ -154,6 +156,61 @@
          </div>
       </div>
    </section>
+   <section class="xp-section light" id="Experience">
+      <div class="container">
+         <div class="row">
+            <div class="title text-center">
+               <h1>Expérience</h1>
+            </div>
+         </div>
+         <div class="row">
+            <div class="service-content">
+               <div class="box wide">
+                  <div class="icon"><i class="fas fa-microchip"></i></div>
+                  <h5>Apprenti Ingénieur IA Embarqué | OPmobility (OP'nSoft) | Oct. 2023 – Sep. 2026</h5>
+                  <h6>Levallois-Perret, France · R&amp;D radar 4D pour la conduite autonome</h6>
+                  <p>Portage d'un modèle de détection radar 4D (RaDelft) sur une carte NVIDIA Jetson AGX Orin, en binôme avec un doctorant.</p>
+                  <div class="metrics">
+                     <div class="metric"><strong>×4,6</strong><span>latence GPU (865 → 188 ms)</span></div>
+                     <div class="metric"><strong>÷3</strong><span>mémoire RAM (10,2 → 3,5 Go)</span></div>
+                     <div class="metric"><strong>Pd 0,58</strong><span>précision préservée (vs 0,59)</span></div>
+                  </div>
+                  <ul>
+                     <li>Banc de test <strong>Hardware-in-the-Loop</strong> (streaming TCP de trames radar de 122 Mo) et étude d'ablation : réseaux Sparse, MobileNet-V2, cache FIFO en multiprocessing, distillation, Smart Downsampling.</li>
+                     <li>Compilation <strong>TensorRT FP16</strong> : de 1,16 à 5,3 FPS, température de la carte de 65,5 à 52&nbsp;°C.</li>
+                     <li>Diagnostic du <em>Mixed Precision Fallback</em> rendant l'INT8 plus lent que le FP16, et recommandation d'un pivot vers une architecture nativement creuse, concrétisée par l'approche à attention ci-dessous.</li>
+                  </ul>
+                  <p class="tags">Python · PyTorch · TensorRT · ONNX · CUDA · NVIDIA Jetson · Perfetto</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section class="xp-section white" id="Recherche">
+      <div class="container">
+         <div class="row">
+            <div class="title text-center">
+               <h1>Recherche</h1>
+            </div>
+         </div>
+         <div class="row">
+            <div class="service-content">
+               <div class="box wide">
+                  <div class="icon"><i class="fas fa-satellite-dish"></i></div>
+                  <h5>Tailored Attention Mechanism for Radar Point-Cloud Generation on Embedded GPUs</h5>
+                  <h6>A. Hernandez, A. Pegatoquet, J.-Y. Dauvignac, R. Christy-Krishanth, <strong>A. Fakhfakh</strong> · Soumis à IEEE RadarConf 2027 (Bangalore, mai 2027)</h6>
+                  <p>Au lieu de convoluer tout le cube radar (15,4 millions de cases, dont plus de 99 % de bruit), un tokenizer radar retient environ 30 000 cellules candidates, puis un transformer à attention asymétrique décide lesquelles forment le nuage de points.</p>
+                  <div class="metrics">
+                     <div class="metric"><strong>21 FPS</strong><span>sur Jetson Orin (vs 7,2)</span></div>
+                     <div class="metric"><strong>3,6×</strong><span>moins de calculs (109 vs 398 GFLOPs)</span></div>
+                     <div class="metric"><strong>4×</strong><span>moins d'énergie par trame</span></div>
+                  </div>
+                  <p class="tags">Détection équivalente au CNN de référence (Pd 0,779 vs 0,767) · Déploiement ONNX → TensorRT FP16</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
    <section class="services" id="Formation">
       <div class="container">
          <div class="row">
@@ -167,7 +224,7 @@
                   <div class="icon"><i class="fa fa-university"></i></div>
                   <h5>Polytech Nantes | 2023-2026</h5>
                   <h6>Nantes, France</h6>
-                  <p>Diplôme d'ingénieur<br>
+                  <p>Diplôme d'ingénieur (par apprentissage)<br>
                      Ingénierie des données et de l'intelligence artificielle<br>
                   </p>
                </div>
@@ -175,7 +232,7 @@
                   <div class="icon"><i class="fa fa-university"></i></div>
                   <h5>IUT de Bayonne et du Pays Basque | 2021-2023</h5>
                   <h6>Anglet, France</h6>
-                  <p>Bachelor Universitaire de Technologie <br>
+                  <p>Diplôme Universitaire de Technologie (DUT)<br>
                      Informatique<br>
                   </p>
                </div>

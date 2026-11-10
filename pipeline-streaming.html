@@ -52,16 +52,14 @@
 
                     <h6>À Propos du projet :</h6>
                     <p>Une architecture complète de traitement de données en streaming à haute vélocité couplée à un
-                        système d'intelligence artificielle en temps réel (In-Line ML Inference). Ce projet démontre la
+                        scoring de fraude exécuté directement dans le flux (In-Line Scoring). Ce projet démontre la
                         mise en place d'un pipeline Big Data de bout en bout pour l'ingestion, l'analyse temporelle
                         complexe, et la détection instantanée de fraudes bancaires, orchestré sur l'écosystème Apache et
                         Google Cloud.</p><br>
 
-                    <p><strong>Pourquoi ce projet ?</strong> Ce PoC prouve qu'il est possible de stopper une transaction
-                        frauduleuse en quelques millisecondes (grâce à Kafka et Flink) tout en garantissant des
+                    <p><strong>Pourquoi ce projet ?</strong> Ce PoC prouve qu'il est possible de stopper une transaction frauduleuse en temps réel (grâce à Kafka et Flink) tout en garantissant des
                         propriétés transactionnelles ACID sur le Data Lake (grâce à Iceberg) pour les analyses futures.
-                        Il illustre la fusion parfaite entre le Data Engineering de flux et l'industrialisation de
-                        modèles de Machine Learning (MLOps) en environnement contraint.</p><br>
+                        Il illustre la fusion parfaite entre le Data Engineering de flux et le scoring en ligne, prêt à accueillir un modèle de Machine Learning.</p><br>
 
                     <h6>Fonctionnalités Clés :</h6>
                     <ul>
@@ -72,9 +70,7 @@
                             pour traquer le comportement des fraudeurs sur la durée grâce au calcul d'agrégations
                             complexes sur des fenêtres glissantes (Hop Windows) et la gestion des retards réseau
                             (Watermarks).</li>
-                        <li><strong>Inférence ML Embarquée (In-Line ML) :</strong> Injection d'un modèle d'Intelligence
-                            Artificielle (UDF Python) directement dans la mémoire de l'exécuteur Flink (TaskManager)
-                            pour scorer la probabilité de fraude en moins d'une milliseconde sans appel réseau externe.
+                        <li><strong>Scoring en ligne (UDF Python) :</strong> Une fonction de scoring de fraude à base de règles (montant, fréquence et nombre de villes sur la fenêtre) s'exécute directement dans l'exécuteur Flink (TaskManager), sans appel réseau externe. Elle est conçue pour être remplacée par un modèle de Machine Learning.
                         </li>
                         <li><strong>Résilience & Architecture Multi-Sink :</strong> Isolation automatique des événements
                             corrompus vers une Dead Letter Queue (DLQ) et routage asynchrone pour expédier simultanément

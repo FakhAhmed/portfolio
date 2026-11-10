@@ -50,15 +50,14 @@
 
                     <h6>About the project:</h6>
                     <p>A comprehensive high-velocity streaming data processing architecture coupled with a real-time
-                        artificial intelligence system (In-Line ML Inference). This project demonstrates the
+                        fraud scoring function running directly inside the stream (In-Line Scoring). This project demonstrates the
                         implementation of an end-to-end Big Data pipeline for ingestion, complex temporal analysis, and
                         instant bank fraud detection, orchestrated on the Apache and Google Cloud ecosystems.</p><br>
 
                     <p><strong>Why this project?</strong> This PoC proves that it is possible to stop a fraudulent
-                        transaction in milliseconds (thanks to Kafka and Flink) while ensuring ACID transactional
+                        transaction in real time (thanks to Kafka and Flink) while ensuring ACID transactional
                         properties on the Data Lake (thanks to Iceberg) for future analytics. It illustrates the perfect
-                        fusion of streaming Data Engineering and the industrialization of Machine Learning models
-                        (MLOps) in a constrained environment.</p><br>
+                        fusion of streaming Data Engineering and in-line scoring, ready to host a Machine Learning model.</p><br>
 
                     <h6>Key Features:</h6>
                     <ul>
@@ -68,9 +67,7 @@
                         <li><strong>Stateful Processing & Time Windows:</strong> Use of Apache Flink to track
                             fraudsters' behavior over time by computing complex aggregations on sliding windows (Hop
                             Windows) and managing network delays (Watermarks).</li>
-                        <li><strong>Embedded ML Inference (In-Line ML):</strong> Injection of an Artificial Intelligence
-                            model (Python UDF) directly into the Flink executor's memory (TaskManager) to score fraud
-                            probability in under a millisecond without external network calls.</li>
+                        <li><strong>In-Line Scoring (Python UDF):</strong> A rule-based fraud scoring function (amount, frequency and number of cities over the window) runs directly inside the Flink executor (TaskManager), without external network calls. It is designed to be swapped for a Machine Learning model.</li>
                         <li><strong>Resilience & Multi-Sink Architecture:</strong> Automatic isolation of corrupted
                             events to a Dead Letter Queue (DLQ) and asynchronous routing to simultaneously dispatch cold
                             data (GCP/Iceberg) and trigger real-time alerts via Kafka.</li>
