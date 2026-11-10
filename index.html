@@ -200,12 +200,13 @@
                   <h5>Tailored Attention Mechanism for Radar Point-Cloud Generation on Embedded GPUs</h5>
                   <h6>A. Hernandez, A. Pegatoquet, J.-Y. Dauvignac, R. Christy-Krishanth, <strong>A. Fakhfakh</strong> · Soumis à IEEE RadarConf 2027 (Bangalore, mai 2027)</h6>
                   <p>Au lieu de convoluer tout le cube radar (15,4 millions de cases, dont plus de 99 % de bruit), un tokenizer radar retient environ 30 000 cellules candidates, puis un transformer à attention asymétrique décide lesquelles forment le nuage de points.</p>
+                  <p><strong>Ma contribution :</strong> co-conception et implémentation du modèle, déploiement ONNX → TensorRT FP16 sur Jetson, protocole de mesure de la latence et de l'énergie, rédaction de l'article.</p>
                   <div class="metrics">
                      <div class="metric"><strong>21 FPS</strong><span>sur Jetson Orin (vs 7,2)</span></div>
                      <div class="metric"><strong>3,6×</strong><span>moins de calculs (109 vs 398 GFLOPs)</span></div>
                      <div class="metric"><strong>4×</strong><span>moins d'énergie par trame</span></div>
                   </div>
-                  <p class="tags">Détection équivalente au CNN de référence (Pd 0,779 vs 0,767) · Déploiement ONNX → TensorRT FP16</p>
+                  <p class="tags">Détection équivalente au CNN de référence (Pd 0,779 vs 0,767)</p>
                </div>
             </div>
          </div>
